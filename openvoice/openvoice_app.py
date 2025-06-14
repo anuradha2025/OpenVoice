@@ -102,10 +102,10 @@ def predict(prompt, style, audio_file_pth, agree):
             None,
             None,
         )
-    if len(prompt) > 200:
-        text_hint += f"[ERROR] Text length limited to 200 characters for this demo, please try shorter text. You can clone our open-source repo and try for your usage \n"
+    if len(prompt) > 20000:
+        text_hint += f"[ERROR] Text length limited to 20000 characters for this demo, please try shorter text. You can clone our open-source repo and try for your usage \n"
         gr.Warning(
-            "Text length limited to 200 characters for this demo, please try shorter text. You can clone our open-source repo for your usage"
+            "Text length limited to 20000 characters for this demo, please try shorter text. You can clone our open-source repo for your usage"
         )
         return (
             text_hint,
@@ -233,7 +233,7 @@ with gr.Blocks(analytics_enabled=False) as demo:
         with gr.Column():
             input_text_gr = gr.Textbox(
                 label="Text Prompt",
-                info="One or two sentences at a time is better. Up to 200 text characters.",
+                info="One or two sentences at a time is better. Up to 20000 text characters.",
                 value="He hoped there would be stew for dinner, turnips and carrots and bruised potatoes and fat mutton pieces to be ladled out in thick, peppered, flour-fattened sauce.",
             )
             style_gr = gr.Dropdown(
